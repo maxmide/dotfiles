@@ -8,6 +8,7 @@ filetype on
 filetype plugin on
 filetype plugin indent on
 syntax on
+set mouse=a
 set rnu
 set number
 
@@ -22,14 +23,22 @@ set showcmd "show partial command
 set showmode "show mode on last line
 set showmatch "show matching words during search
 
+" Enable smartcase search sensitivity
+set ignorecase
+set smartcase
+
+" Cursor shape 
+let &t_SI.= "\e[5 q"
+let &t_SR.= "\e[4 q"
+let &t_EI.= "\e[1 q"
+
 set wildmenu "autocomplete on TAB
 set wildmode=list:longest " make wildmenu similar to Bash completion
 set wildignore=*.docx,*.jpg,*.png,".gif,*.pdf,*.pyc,*.exe,*.xlsx
 
 "
-" Key maps
+" Autocomplete matching parenthesis
 "-------------------------------------------
-nnoremap <C-p> :Files<Cr>
 
 " GUI
 " -----------------------
@@ -41,12 +50,14 @@ nnoremap <C-p> :Files<Cr>
 " Font settings
 if has("gui_running")
     if has("gui_gtk2")
-        set guifont=iosevka\ Mono:h14
+        set guifont=iosevka\ Mono:h16
     elseif has("gui_win32")
-        set guifont=Iosevka\ Medium:h14
+        set guifont=Iosevka\ Medium:h16
         :set lines=999 columns=999
     endif
 endif
+
+nnoremap <C-p> :Files<Cr>
 
 "    Plugins
 "    --------
@@ -55,6 +66,7 @@ endif
 call plug#begin()
 
 Plug 'morhetz/gruvbox'
+Plug 'zah/nim.vim'
 
 " Zig
 Plug 'ziglang/zig.vim'
