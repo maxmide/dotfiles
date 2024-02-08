@@ -16,6 +16,8 @@ set shiftwidth=4
 set tabstop=4
 set expandtab
 
+set splitbelow " Always split windows below
+
 set nobackup
 set nowrap
 
@@ -57,7 +59,9 @@ if has("gui_running")
     endif
 endif
 
+" Key Maps
 nnoremap <C-p> :Files<Cr>
+nnoremap <C-k> :bo term<Cr>  
 
 "    Plugins
 "    --------
