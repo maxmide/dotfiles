@@ -15,7 +15,7 @@
 (setq make-backup-files nil)
 (setq auto-save-default nil)
 
-(set-face-attribute 'default nil :font "iosevka" :height 140)
+(set-face-attribute 'default nil :font "firacode" :height 130)
 
 ;; Make ESC quit prompts
 (global-set-key (kbd "<escape>") 'keyboard-escape-quit)
@@ -25,19 +25,30 @@
 (global-display-line-numbers-mode t)
 (setq display-line-numbers-type 'relative)
 
+;; Highlight current line
+(global-hl-line-mode 1)
+
 ;; Disable line numbers for some modes
 (dolist (mode '(org-mode-hook
+                fountain-mode-hook
 		term-mode-hook
 		shell-mode-hook
 		eshell-mode-hook))
   (add-hook mode (lambda () (display-line-numbers-mode 0))))
 
+
+;; Enable visual-line-mode (word wrap) for specific modes
+(dolist (mode '(org-mode-hook
+                fountain-mode-hook
+                markdown-mode-hook
+                text-mode-hook))
+  (add-hook mode (lambda () (visual-line-mode 1))))
+
+;; Ensure other modes truncate lines
+;; (setq-default truncate-lines t)
+
 ;; Initialize package sources
 (require 'package)
-
-;; Compile buffer to display vertically
-(setq split-height-threshold nil)
-(setq split-width-threshold 0)
 
 (setq package-archives '(("melpa" . "https://melpa.org/packages/")
 			 ("melpa-stable" . "https://stable.melpa.org/packages/")
@@ -70,15 +81,6 @@
   (ivy-mode 1))
 
 (use-package all-the-icons)
-
-(use-package doom-modeline
-  :ensure t
-  :init (doom-modeline-mode 1)
-  :custom ((doom-modeline-height 11)))
-
-
-(use-package doom-themes
-  :init (load-theme 'doom-gruvbox t))
 
 (use-package rainbow-delimiters
   :hook (prog-mode . rainbow-delimiters-mode))
@@ -137,7 +139,7 @@
 
 (use-package evil
   :init
-  (setq evil-wantv-integration t)
+  (setq evil-want-integration t)
   (setq evil-want-keybinding nil)
   (setq evil-want-C-u-scroll t)
   (setq evil-want-C-i-jump nil)
@@ -152,11 +154,6 @@
 
   (evil-set-initial-state 'message-buffer-mode 'normal)
   (evil-set-initial-state 'dashboard-mode 'normal))
-
-(use-package evil-collection
-  :after evil
-  :config
-  (evil-collection-init))
 
 (use-package hydra)
 
@@ -178,50 +175,17 @@
   :init
   (setq projectile-switch-project-action #'projectile-dired))
 
-(use-package magit
-  :custom
-  (magit-display-buffer-function #'magit-display-buffer-same-window-except-diff-v1))
+(use-package all-the-icons)
 
-(use-package org
-  :config
-  (setq org-ellipsis " ▾"))
+(use-package doom-themes
+  :init (load-theme 'doom-gruvbox t))
 
-(use-package org-bullets
-  :hook (org-mode . org-bullets-mode)
-  :custom
-  (org-bullets-bullet-list '("◎" "◇" "◉" "►" "○" "○")))
+(use-package doom-modeline
+  :init (doom-modeline-mode 1)
+  :custom ((doom-modeline-height 15)))
 
-(dolist (face '(((org-level-1 - 1.2)
-		 (org-level-2 - 1.1)
-		 (org-level-3 - 1.05)
-		 (org-level-4 - 1.0)
-		 (org-level-5 - 1.1)
-	       	 (org-level-6 - 1.1)
-	       	 (org-level-7 - 1.1)
-		 (org-level-8 - 1.1)))))
-;; Programming
-(electric-pair-mode t)
-
-(use-package lsp-mode
-  :commands (lsp lsp-deferred)
-  :init
-  (setq lsp-keymap-prefix "C-c l")
-  :config
-  (lsp-enable-which-key-integration t))
-
-
-;; Python
-(use-package python-mode
-  :ensure t
-  :custom
-  (python-shell-interpreter "python"))
-
-
-(use-package lsp-pyright
-  :ensure t
-  :hook (python-mode . (lambda ()
-			 (require 'lsp-pyright)
-			 (lsp))))
+;; org-mode
+(use-package org)
 
 ;; Company
 (use-package company
@@ -235,18 +199,159 @@
   (company-minimum-prefix-length 1)
   (company-idle-delay 0.0))
 
-(use-package company-box
-  :hook (company-mode . company-box-mode))
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(package-selected-packages
-   '(doom python-mode which-key use-package rainbow-delimiters projectile org-bullets magit lsp-pyright ivy-rich hydra helpful general evil-collection doom-themes doom-modeline counsel company-box all-the-icons)))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
+
+(electric-pair-mode 1)
+
+;; Use spaces instead of tabs
+(setq-default indent-tabs-mode nil) ; Use spaces for indentation
+(setq-default tab-width 4)          ; Set tab width to 4 spaces
+
+;; LSP
+(use-package lsp-mode
+  :commands (lsp lsp-deferred)
+  :init
+  (setq lsp-keymap-prefix "C-c l")
+  :config
+  (lsp-enable-which-key-integration t))
+
+(setq lsp-warn-no-matched-clients nil)
+
+;; Python Configuration
+(use-package python-mode
+  :ensure nil
+  :hook (python-mode . lsp-deferred)
+  :custom
+  (python-shell-interpreter "python3")
+  (python-indent-offset 4))
+
+;; C/C++ Configuration
+(use-package cc-mode
+  :ensure t
+  :hook ((c-mode . lsp-deferred)
+         (c++-mode . lsp-deferred))
+  :config
+  (setq c-default-style "linux"
+        c-basic-offset 4))
+
+;; Golang Configuration
+(use-package go-mode
+  :ensure t
+  :hook (go-mode . (lambda ()
+                      (setq-local indent-tabs-mode t)                            ; Use tabs in Go
+                      (setq-local tab-width 4)                                   ; Show tabs as 4 spaces
+                      (add-hook 'before-save-hook #'gofmt-before-save nil t)))   ; LOCAL hook
+  :hook (go-mode . lsp-deferred)
+
+  :config
+  (setq gofmt-command "goimports"))
+
+;; Zig Configuration
+(use-package zig-mode
+  :ensure t
+  :hook (zig-mode . lsp-deferred)
+  :config
+  (setq zig-format-on-save nil))
+
+;; Web Mode
+(use-package web-mode
+  :ensure t
+  :mode
+  (("\\.phtml\\'" . web-mode)
+   ("\\.php\\'" . web-mode)
+   ("\\.tpl\\'" . web-mode)
+   ("\\.[agj]sp\\'" . web-mode)
+   ("\\.as[cp]x\\'" . web-mode)
+   ("\\.erb\\'" . web-mode)
+   ("\\.mustache\\'" . web-mode)
+   ("\\.djhtml\\'" . web-mode)
+   ("\\.twig\\'" . web-mode))  ;; Add Twig support
+  :config
+  (setq web-mode-engines-alist
+        '(("twig" . "\\.twig\\'"))) ;; Ensure Twig files use the Twig engine
+  (add-hook 'web-mode-hook #'lsp-deferred))
+
+;; Disable electric-pair-mode for .twig files
+(defun my/disable-electric-pair-for-twig ()
+  (when (string-match-p "\\.twig\\'" (buffer-file-name))
+    (electric-pair-local-mode -1)))
+
+(add-hook 'web-mode-hook 'my/disable-electric-pair-for-twig)
+
+;; Disable lsp-mode for .twig files
+(defun my/disable-lsp-for-twig ()
+  (when (string-match-p "\\.twig\\'" (buffer-file-name))
+    (lsp-mode -1)))
+
+
+
+(use-package ligature
+  :load-path "path-to-ligature-repo"
+  :config
+  ;; Enable the "www" ligature in every possible major mode
+  (ligature-set-ligatures 't '("www"))
+  ;; Enable traditional ligature support in eww-mode, if the
+  ;; `variable-pitch' face supports it
+  (ligature-set-ligatures 'eww-mode '("ff" "fi" "ffi"))
+  ;; Enable all Cascadia and Fira Code ligatures in programming modes
+  (ligature-set-ligatures 'prog-mode
+                        '(;; == === ==== => =| =>>=>=|=>==>> ==< =/=//=// =~
+                          ;; =:= =!=
+                          ("=" (rx (+ (or ">" "<" "|" "/" "~" ":" "!" "="))))
+                          ;; ;; ;;;
+                          (";" (rx (+ ";")))
+                          ;; && &&&
+                          ("&" (rx (+ "&")))
+                          ;; !! !!! !. !: !!. != !== !~
+                          ("!" (rx (+ (or "=" "!" "\." ":" "~"))))
+                          ;; ?? ??? ?:  ?=  ?.
+                          ("?" (rx (or ":" "=" "\." (+ "?"))))
+                          ;; %% %%%
+                          ("%" (rx (+ "%")))
+                          ;; |> ||> |||> ||||> |] |} || ||| |-> ||-||
+                          ;; |->>-||-<<-| |- |== ||=||
+                          ;; |==>>==<<==<=>==//==/=!==:===>
+                          ("|" (rx (+ (or ">" "<" "|" "/" ":" "!" "}" "\]"
+                                          "-" "=" ))))
+                          ;; \\ \\\ \/
+                          ("\\" (rx (or "/" (+ "\\"))))
+                          ;; ++ +++ ++++ +>
+                          ("+" (rx (or ">" (+ "+"))))
+                          ;; :: ::: :::: :> :< := :// ::=
+                          (":" (rx (or ">" "<" "=" "//" ":=" (+ ":"))))
+                          ;; // /// //// /\ /* /> /===:===!=//===>>==>==/
+                          ("/" (rx (+ (or ">"  "<" "|" "/" "\\" "\*" ":" "!"
+                                          "="))))
+                          ;; .. ... .... .= .- .? ..= ..<
+                          ("\." (rx (or "=" "-" "\?" "\.=" "\.<" (+ "\."))))
+                          ;; -- --- ---- -~ -> ->> -| -|->-->>->--<<-|
+                          ("-" (rx (+ (or ">" "<" "|" "~" "-"))))
+                          ;; *> */ *)  ** *** ****
+                          ("*" (rx (or ">" "/" ")" (+ "*"))))
+                          ;; www wwww
+                          ("w" (rx (+ "w")))
+                          ;; <> <!-- <|> <: <~ <~> <~~ <+ <* <$ </  <+> <*>
+                          ;; <$> </> <|  <||  <||| <|||| <- <-| <-<<-|-> <->>
+                          ;; <<-> <= <=> <<==<<==>=|=>==/==//=!==:=>
+                          ;; << <<< <<<<
+                          ("<" (rx (+ (or "\+" "\*" "\$" "<" ">" ":" "~"  "!"
+                                          "-"  "/" "|" "="))))
+                          ;; >: >- >>- >--|-> >>-|-> >= >== >>== >=|=:=>>
+                          ;; >> >>> >>>>
+                          (">" (rx (+ (or ">" "<" "|" "/" ":" "=" "-"))))
+                          ;; #: #= #! #( #? #[ #{ #_ #_( ## ### #####
+                          ("#" (rx (or ":" "=" "!" "(" "\?" "\[" "{" "_(" "_"
+                                       (+ "#"))))
+                          ;; ~~ ~~~ ~=  ~-  ~@ ~> ~~>
+                          ("~" (rx (or ">" "=" "-" "@" "~>" (+ "~"))))
+                          ;; __ ___ ____ _|_ __|____|_
+                          ("_" (rx (+ (or "_" "|"))))
+                          ;; Fira code: 0xFF 0x12
+                          ("0" (rx (and "x" (+ (in "A-F" "a-f" "0-9")))))
+                          ;; Fira code:
+                          "Fl"  "Tl"  "fi"  "fj"  "fl"  "ft"
+                          ;; The few not covered by the regexps.
+                          "{|"  "[|"  "]#"  "(*"  "}#"  "$>"  "^="))
+  ;; Enables ligature checks globally in all buffers. You can also do it
+  ;; per mode with `ligature-mode'.
+  (global-ligature-mode t))
+
