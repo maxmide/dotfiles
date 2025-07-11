@@ -1,1 +1,0 @@
-"use strict";!function(){const s=new Map([["1819.is",0]]),e=new Map(void 0),t=new Map(void 0);self.proceduralImports=self.proceduralImports||[],self.proceduralImports.push({argsList:[['{"selector":".d-flex.flex-column.mx-auto","tasks":[["has-text","AUGLÝSING"]]}']],hostnamesMap:s,entitiesMap:e,exceptionsMap:t})}();

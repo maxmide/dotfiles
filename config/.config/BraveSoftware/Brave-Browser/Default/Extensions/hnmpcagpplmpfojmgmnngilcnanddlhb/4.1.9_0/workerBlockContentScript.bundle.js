@@ -1,1 +1,0 @@
-(()=>{"use strict";Object.defineProperty(window,"Worker",{value:{},configurable:!0}),Object.defineProperty(window,"SharedWorker",{value:{},configurable:!0}),Object.defineProperty(window.navigator,"serviceWorker",{value:{},configurable:!0})})();

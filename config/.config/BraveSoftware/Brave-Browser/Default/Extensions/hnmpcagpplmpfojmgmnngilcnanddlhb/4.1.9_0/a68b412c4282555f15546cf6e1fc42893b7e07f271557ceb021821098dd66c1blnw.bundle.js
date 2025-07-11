@@ -1,1 +1,0 @@
-(()=>{"use strict";(()=>{Object.defineProperty(window.navigator,"language",{value:"pt-BR",configurable:!0}),Object.defineProperty(window.navigator,"languages",{value:["pt-BR"],configurable:!0});const t=Intl.DateTimeFormat.prototype.resolvedOptions;Intl.DateTimeFormat.prototype.resolvedOptions=function(...e){const o=t.apply(this,e);return o.locale="pt-BR",o}})()})();

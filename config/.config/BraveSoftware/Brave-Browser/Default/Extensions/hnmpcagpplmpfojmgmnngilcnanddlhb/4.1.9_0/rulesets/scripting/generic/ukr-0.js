@@ -1,1 +1,0 @@
-"use strict";!function(){const e=[[11868393,".nts-ad"],[16300881,".nts-video-wrapper"]],s=self.genericSelectorMap||new Map;if(0!==s.size){for(const t of e){const e=s.get(t[0]);s.set(t[0],void 0===e?t[1]:`${e},${t[1]}`)}self.genericSelectorMap=s}else self.genericSelectorMap=new Map(e)}();

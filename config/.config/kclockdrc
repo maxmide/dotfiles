@@ -1,2 +1,0 @@
-[Timers]
-timersList=[{"commandTimeout":"","label":"Programming Lesson","length":7140,"looping":false,"uuid":"{ef252a2b-b5fa-4a1a-9deb-46f227275cc1}"},{"commandTimeout":"","label":"Reading Lesson","length":5340,"looping":false,"uuid":"{862d3424-d365-4261-aaa4-81061fc03f83}"},{"commandTimeout":"","label":"Video Lesson","length":7200,"looping":false,"uuid":"{5191709d-0a9a-4f67-b178-b5644c241a58}"}]

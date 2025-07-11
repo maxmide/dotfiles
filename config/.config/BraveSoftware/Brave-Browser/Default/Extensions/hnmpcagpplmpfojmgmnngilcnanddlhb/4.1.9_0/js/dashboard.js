@@ -1,1 +1,0 @@
-import{dom}from"./dom.js";import{runtime}from"./ext.js";dom.text("#aboutNameVer","uBlock Origin Lite 2025.1.14.952"),dom.attr("a","target","_blank"),dom.on("#dashboard-nav","click",".tabButton",(t=>{dom.body.dataset.pane=t.target.dataset.pane}));

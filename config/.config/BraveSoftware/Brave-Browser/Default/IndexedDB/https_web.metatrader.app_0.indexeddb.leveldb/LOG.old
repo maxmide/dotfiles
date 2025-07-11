@@ -1,9 +1,0 @@
-2025/07/09-20:34:42.431 4571 Reusing MANIFEST /home/maxwell/.config/BraveSoftware/Brave-Browser/Default/IndexedDB/https_web.metatrader.app_0.indexeddb.leveldb/MANIFEST-000001
-2025/07/09-20:34:42.432 4571 Recovering log #24
-2025/07/09-20:34:42.452 4571 Reusing old log /home/maxwell/.config/BraveSoftware/Brave-Browser/Default/IndexedDB/https_web.metatrader.app_0.indexeddb.leveldb/000024.log 
-2025/07/09-20:35:03.471 4571 Compacting 1@1 + 1@2 files
-2025/07/09-20:35:03.485 4571 Generated table #27@1: 233 keys, 354163 bytes
-2025/07/09-20:35:03.485 4571 Compacted 1@1 + 1@2 files => 354163 bytes
-2025/07/09-20:35:03.491 4571 compacted to: files[ 0 0 1 0 0 0 0 ]
-2025/07/09-20:35:03.492 4571 Delete type=2 #25
-2025/07/09-20:35:03.492 4571 Delete type=2 #22

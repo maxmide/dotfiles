@@ -1,8 +1,0 @@
-[FileDialogSize]
-1536x864 screen: Height=600
-1536x864 screen: Width=1536
-
-[KFileDialog Settings]
-Recent Files[$e]=file:$HOME/Documents/Final Exam.docx,file:$HOME/Documents/Differential Diagnosis.docx,file:$HOME/Pictures/sheet.png
-Recent URLs[$e]=file:$HOME/Documents/,file:$HOME/,file:$HOME/Desktop/,file:$HOME/Downloads/,file:$HOME/Pictures/,file:///mnt/Maxwell/Files/Academic Writing/,file:$HOME/Documents/Principles of Preaching/
-detailViewIconSize=16
