@@ -1,0 +1,17 @@
+[$Version]
+update_info=webenginepart.upd:MoveNonPasswordStorableSites
+
+[MainWindow]
+1536x864 screen: Height=864
+1536x864 screen: Width=1536
+1536x864 screen: Window-Maximized=true
+RestorePositionForNextInstance=false
+State=AAAA/wAAAAD9AAAAAAAABgAAAALLAAAABAAAAAQAAAAIAAAACPwAAAACAAAAAgAAAAMAAAAWAG0AYQBpAG4AVABvAG8AbABCAGEAcgEAAAAA/////wAAAAAAAAAAAAAAGABlAHgAdAByAGEAVABvAG8AbABCAGEAcgAAAAAA/////wAAAAAAAAAAAAAAHgBsAG8AYwBhAHQAaQBvAG4AVABvAG8AbABCAGEAcgEAAAEo/////wAAAAAAAAAAAAAAAgAAAAIAAAAeAGIAbwBvAGsAbQBhAHIAawBUAG8AbwBsAEIAYQByAAAAAAD/////AAAAAAAAAAAAAAAWAGgAdABtAGwAVABvAG8AbABCAGEAcgAAAAAA/////wAAAAAAAAAA
+StatusBar=Enabled
+ToolBarsMovable=Disabled
+
+[Notification Messages]
+Complete Full Screen Warning=false
+
+[Undo]
+Number of Closed Windows=4

@@ -1,0 +1,6 @@
+2025/06/27-19:00:31.381 2eb7 Reusing MANIFEST /home/maxwell/.config/WriterSolo/Local Storage/leveldb/MANIFEST-000001
+2025/06/27-19:00:31.382 2eb7 Recovering log #4
+2025/06/27-19:00:31.382 2eb7 Reusing old log /home/maxwell/.config/WriterSolo/Local Storage/leveldb/000004.log 
+2025/06/27-19:01:31.877 2eec Level-0 table #7: started
+2025/06/27-19:01:31.888 2eec Level-0 table #7: 21915 bytes OK
+2025/06/27-19:01:31.892 2eec Delete type=0 #4

@@ -1,0 +1,15 @@
+2025/07/09-20:34:40.145 4 Reusing MANIFEST /home/maxwell/.config/BraveSoftware/Brave-Browser/Default/Session Storage/MANIFEST-000001
+2025/07/09-20:34:40.150 4 Recovering log #89
+2025/07/09-20:34:40.153 4 Reusing old log /home/maxwell/.config/BraveSoftware/Brave-Browser/Default/Session Storage/000089.log 
+2025/07/09-21:01:48.159 5 Level-0 table #93: started
+2025/07/09-21:01:48.169 5 Level-0 table #93: 55856 bytes OK
+2025/07/09-21:01:48.175 5 Delete type=0 #89
+2025/07/09-21:01:48.176 4 Compacting 4@0 + 1@1 files
+2025/07/09-21:01:48.188 4 Generated table #94@0: 3459 keys, 93067 bytes
+2025/07/09-21:01:48.188 4 Compacted 4@0 + 1@1 files => 93067 bytes
+2025/07/09-21:01:48.193 4 compacted to: files[ 0 1 1 0 0 0 0 ]
+2025/07/09-21:01:48.196 4 Delete type=2 #90
+2025/07/09-21:01:48.196 4 Delete type=2 #82
+2025/07/09-21:01:48.196 4 Delete type=2 #93
+2025/07/09-21:01:48.196 4 Delete type=2 #84
+2025/07/09-21:01:48.197 4 Delete type=2 #87

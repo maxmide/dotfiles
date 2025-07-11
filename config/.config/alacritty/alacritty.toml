@@ -1,0 +1,33 @@
+[font]
+size = 12
+
+[font.bold]
+family = "firacode"
+style = "Bold"
+
+[font.bold_italic]
+family = "firacode"
+style = "BoldItalic"
+
+[font.italic]
+family = "firacode"
+style = "MediumItalic"
+
+[font.normal]
+family = "firacode"
+style = "Medium"
+
+[scrolling]
+history = 10000
+multiplier = 3
+
+[window.dimensions]
+columns = 115
+lines = 29
+
+[window.padding]
+x = 0
+y = 0
+
+[colors]
+draw_bold_text_with_bright_colors = true

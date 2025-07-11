@@ -1,0 +1,28 @@
+1536x864 screen: Height=689
+1536x864 screen: Width=1218
+1536x864 screen: XPosition=70
+1536x864 screen: YPosition=77
+MenuBar=Disabled
+State=AAAA/wAAAAD9AAAAAQAAAAAAAAAAAAAAAPwCAAAAAvsAAAAcAFMAUwBIAE0AYQBuAGEAZwBlAHIARABvAGMAawAAAAAA/////wAAARUBAAAD+wAAACIAUQB1AGkAYwBrAEMAbwBtAG0AYQBuAGQAcwBEAG8AYwBrAAAAAAD/////AAABfAEAAAMAAATCAAACmwAAAAQAAAAEAAAACAAAAAj8AAAAAQAAAAIAAAACAAAAFgBtAGEAaQBuAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAAAAAAAAAABwAcwBlAHMAcwBpAG8AbgBUAG8AbwBsAGIAYQByAQAAABb/////AAAAAAAAAAA=
+eDP-1=eDP-1
+
+[Desktop Entry]
+DefaultProfile=maxwelll.profile
+
+[General]
+ConfigVersion=1
+
+[MainWindow]
+1536x864 screen: Height=689
+1536x864 screen: Width=1218
+1536x864 screen: XPosition=78
+1536x864 screen: YPosition=47
+1920x1080 screen: Height=1026
+1920x1080 screen: Width=1898
+1920x1080 screen: XPosition=10
+1920x1080 screen: YPosition=42
+MenuBar=Disabled
+eDP-1=eDP-1
+
+[UiSettings]
+ColorScheme=

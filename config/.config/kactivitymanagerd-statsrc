@@ -1,0 +1,11 @@
+[Favorites-org.kde.plasma.kickoff.favorites.instance-27-d68da4cf-31dc-4983-8648-ca8a20790db7]
+ordering=applications:firefox.desktop,applications:org.kde.dolphin.desktop,applications:systemsettings.desktop,applications:vivaldi-stable.desktop,applications:brave-browser.desktop,applications:Alacritty.desktop,applications:libreoffice25.2-writer.desktop,applications:org.gnome.Nautilus.desktop,applications:org.kde.kclock.desktop
+
+[Favorites-org.kde.plasma.kickoff.favorites.instance-27-global]
+ordering=applications:firefox.desktop,applications:org.kde.dolphin.desktop,applications:systemsettings.desktop,applications:vivaldi-stable.desktop,applications:brave-browser.desktop,applications:Alacritty.desktop,applications:libreoffice25.2-writer.desktop,applications:org.gnome.Nautilus.desktop,applications:org.kde.kclock.desktop
+
+[Favorites-org.kde.plasma.kickoff.favorites.instance-3-d68da4cf-31dc-4983-8648-ca8a20790db7]
+ordering=applications:firefox.desktop,applications:systemsettings.desktop,applications:org.kde.dolphin.desktop,applications:org.kde.discover.desktop
+
+[Favorites-org.kde.plasma.kickoff.favorites.instance-3-global]
+ordering=applications:firefox.desktop,applications:systemsettings.desktop,applications:org.kde.dolphin.desktop,applications:org.kde.discover.desktop

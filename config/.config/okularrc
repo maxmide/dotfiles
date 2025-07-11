@@ -1,0 +1,39 @@
+[Desktop Entry]
+FullScreen=false
+
+[General]
+LockSidebar=true
+ShowSidebar=false
+
+[MainWindow]
+1536x864 screen: Height=771
+1536x864 screen: Width=1015
+1536x864 screen: XPosition=275
+1536x864 screen: YPosition=39
+1920x1080 screen: Height=936
+1920x1080 screen: Width=1152
+1920x1080 screen: XPosition=414
+1920x1080 screen: YPosition=66
+eDP-1=eDP-1
+
+[Recent Files]
+File1[$e]=$HOME/Desktop/Economics.pdf
+File10[$e]=$HOME/Desktop/Forex For Beginners.mobi
+File2[$e]=$HOME/Desktop/Fundamental Accounting Principles.pdf
+File3[$e]=$HOME/Downloads/The Go programming language.pdf
+File4[$e]=$HOME/Desktop/Discrete Mathematics.pdf
+File5[$e]=$HOME/Desktop/Introduction to Algorithms.pdf
+File6[$e]=$HOME/Desktop/C++ Programming From Problem Analysis to Program Design 8th.pdf
+File7[$e]=$HOME/Desktop/Jon Bodner - Learning Go.pdf
+File8[$e]=$HOME/Downloads/Jay McGavren - Head First Go (2019, O'Reilly Media) - libgen.li.pdf
+File9[$e]=$HOME/Desktop/Concurrency in Go_ Tools and Techniques for Developers-O’Reilly Media (2017).pdf
+Name1[$e]=Economics.pdf
+Name10[$e]=Forex For Beginners.mobi
+Name2[$e]=Fundamental Accounting Principles.pdf
+Name3[$e]=The Go programming language.pdf
+Name4[$e]=Discrete Mathematics.pdf
+Name5[$e]=Introduction to Algorithms.pdf
+Name6[$e]=C++ Programming From Problem Analysis to Program Design 8th.pdf
+Name7[$e]=Jon Bodner - Learning Go.pdf
+Name8[$e]=Jay McGavren - Head First Go (2019, O'Reilly Media) - libgen.li.pdf
+Name9[$e]=Concurrency in Go_ Tools and Techniques for Developers-O’Reilly Media (2017).pdf

@@ -1,0 +1,125 @@
+{
+  "geometry-of-main_window_geometry": {
+    "frame_geometry": {
+      "height": 806,
+      "width": 915,
+      "x": 613,
+      "y": 9
+    },
+    "full_screened": false,
+    "geometry": {
+      "height": 776,
+      "width": 913,
+      "x": 614,
+      "y": 38
+    },
+    "maximized": false,
+    "normal_geometry": {
+      "height": 776,
+      "width": 913,
+      "x": 614,
+      "y": 38
+    },
+    "qt": {
+      "__class__": "bytearray",
+      "__value__": "AdnQywADAAAAAAJlAAAACQAABfcAAAMuAAACZgAAACYAAAX2AAADLQAAAAAAAAAABgAAAAJmAAAAJgAABfYAAAMt"
+    },
+    "screen": {
+      "depth": 24,
+      "device_pixel_ratio": 1.25,
+      "geometry_in_logical_pixels": {
+        "height": 864,
+        "width": 1536,
+        "x": 0,
+        "y": 0
+      },
+      "index_in_screens_list": 0,
+      "manufacturer": "AU Optronics",
+      "model": "",
+      "name": "eDP-1",
+      "serial": "",
+      "size_in_logical_pixels": {
+        "height": 864,
+        "width": 1536
+      },
+      "virtual_geometry": {
+        "height": 864,
+        "width": 1536,
+        "x": 0,
+        "y": 0
+      }
+    }
+  },
+  "main_window_state": {
+    "__class__": "bytearray",
+    "__value__": "AAAA/wAAAAH9AAAAAgAAAAAAAAAAAAAAAPwCAAAAAvsAAAAQAHQAbwBjAC0AZABvAGMAawAAAAAA/////wAAAIoA////+wAAABYAcwBlAGEAcgBjAGgALQBkAG8AYwBrAAAAAAD/////AAAAmgD///8AAAABAAABAAAAAvb8AgAAAAT7AAAAFgBsAG8AbwBrAHUAcAAtAGQAbwBjAGsAAAAAAP////8AAACDAP////sAAAAcAGIAbwBvAGsAbQBhAHIAawBzAC0AZABvAGMAawAAAAAAAAAC9gAAAPIA////+wAAABwAaQBuAHMAcABlAGMAdABvAHIALQBkAG8AYwBrAAAAAAD/////AAAAFAD////7AAAAHgBoAGkAZwBoAGwAaQBnAGgAdABzAC0AZABvAGMAawAAAAAA/////wAAANcA////AAADkQAAAwgAAAAEAAAABAAAAAgAAAAI/AAAAAEAAAAAAAAAAQAAAB4AYQBjAHQAaQBvAG4AcwBfAHQAbwBvAGwAYgBhAHICAAAAAP////8AAAAAAAAAAA=="
+  },
+  "old_prefs_migrated": true,
+  "session_data": {
+    "base_font_size": 24,
+    "controls_help_shown_count": 2,
+    "margin_left": 40,
+    "margin_right": 40,
+    "read_mode": "flow",
+    "standalone_font_settings": {},
+    "standalone_misc_settings": {
+      "remember_window_geometry": true
+    },
+    "standalone_recently_opened": [
+      {
+        "authors": [
+          "Anna Coulling"
+        ],
+        "key": "/home/maxwell/Desktop/Forex For Beginners.mobi",
+        "pathtoebook": "/home/maxwell/Desktop/Forex For Beginners.mobi",
+        "timestamp": "2025-07-10T21:26:41.599Z",
+        "title": "Forex For Beginners"
+      },
+      {
+        "authors": [
+          "Kel Butcher"
+        ],
+        "key": "/mnt/Maxwell/Books and Tutorials/Books/Business and Commerce/Trading/Forex/Forex Made Simple_ A Beginner's Guide to Foreign Exchange Success.epub",
+        "pathtoebook": "/mnt/Maxwell/Books and Tutorials/Books/Business and Commerce/Trading/Forex/Forex Made Simple_ A Beginner's Guide to Foreign Exchange Success.epub",
+        "timestamp": "2025-06-17T14:04:31.073Z",
+        "title": "Forex Made Simple"
+      },
+      {
+        "authors": [
+          "Adam Kritzer"
+        ],
+        "key": "/mnt/Maxwell/Books and Tutorials/Books/Business and Commerce/Trading/Forex/Forex for Beginners_ A Comprehensive Guide to Profiting from the Global Currency Markets.epub",
+        "pathtoebook": "/mnt/Maxwell/Books and Tutorials/Books/Business and Commerce/Trading/Forex/Forex for Beginners_ A Comprehensive Guide to Profiting from the Global Currency Markets.epub",
+        "timestamp": "2025-06-17T14:04:11.575Z",
+        "title": "Forex for Beginners: A Comprehensive Guide to Profiting From the Global Currency Markets"
+      },
+      {
+        "authors": [
+          "Anna Coulling"
+        ],
+        "key": "/mnt/Maxwell/Books and Tutorials/Books/Business and Commerce/Trading/Forex/Forex For Beginners.mobi",
+        "pathtoebook": "/mnt/Maxwell/Books and Tutorials/Books/Business and Commerce/Trading/Forex/Forex For Beginners.mobi",
+        "timestamp": "2025-06-17T10:38:41.074Z",
+        "title": "Forex For Beginners"
+      },
+      {
+        "authors": [
+          "Jeremy Kubica;"
+        ],
+        "key": "/mnt/Maxwell/Jeremy Kubica - Graph Algorithms the Fun Way_ Powerful Algorithms Decoded, Not Oversimplified-Penguin Random House (2024).epub",
+        "pathtoebook": "/mnt/Maxwell/Jeremy Kubica - Graph Algorithms the Fun Way_ Powerful Algorithms Decoded, Not Oversimplified-Penguin Random House (2024).epub",
+        "timestamp": "2025-05-28T06:18:43.812Z",
+        "title": "Graph Algorithms the Fun Way: Powerful Algorithms Decoded, Not Oversimplified"
+      },
+      {
+        "authors": [
+          "Umberto Eco"
+        ],
+        "key": "/mnt/Maxwell/Books and Tutorials/Books/Novels/Eco, Umberto/Baudolino/Eco, Umberto - Baudolino (Harcourt, 2002).epub",
+        "pathtoebook": "/mnt/Maxwell/Books and Tutorials/Books/Novels/Eco, Umberto/Baudolino/Eco, Umberto - Baudolino (Harcourt, 2002).epub",
+        "timestamp": "2025-05-28T06:17:13.622Z",
+        "title": "Baudolino"
+      }
+    ]
+  }
+}

@@ -1,0 +1,36 @@
+
+[audacious]
+shuffle=TRUE
+use_qt=TRUE
+
+[audgui]
+about_win=669,321,582,361
+
+[gtkui]
+column_widths=10,275,175,10,175,175,10,100,36,10,275,275,275,10,275
+player_height=695
+player_width=815
+player_x=165
+player_y=84
+
+[gtkui-layout]
+item0_name=Spectrum Analyser
+item0_pos=-1,0,0,284,188
+item1_name=OpenGL Spectrum Analyzer
+item1_pos=-1,0,0,284,188
+item2_name=Blur Scope
+item2_pos=-1,0,0,284,188
+item_count=3
+
+[qtui]
+player_height=447
+player_width=764
+
+[skins]
+equalizer_x=767
+equalizer_y=812
+player_x=65
+player_y=17
+playlist_x=1042
+playlist_y=696
+skin=/usr/share/audacious/Skins/Default

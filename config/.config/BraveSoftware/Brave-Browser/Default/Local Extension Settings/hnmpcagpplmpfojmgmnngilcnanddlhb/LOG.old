@@ -1,0 +1,15 @@
+2025/07/09-20:34:40.820 4572 Reusing MANIFEST /home/maxwell/.config/BraveSoftware/Brave-Browser/Default/Local Extension Settings/hnmpcagpplmpfojmgmnngilcnanddlhb/MANIFEST-000001
+2025/07/09-20:34:40.821 4572 Recovering log #26
+2025/07/09-20:34:40.825 4572 Reusing old log /home/maxwell/.config/BraveSoftware/Brave-Browser/Default/Local Extension Settings/hnmpcagpplmpfojmgmnngilcnanddlhb/000026.log 
+2025/07/09-21:00:57.284 4571 Level-0 table #30: started
+2025/07/09-21:00:57.324 4571 Level-0 table #30: 1422308 bytes OK
+2025/07/09-21:00:57.329 4571 Delete type=0 #26
+2025/07/09-21:00:57.330 4584 Compacting 4@0 + 1@1 files
+2025/07/09-21:00:57.348 4584 Generated table #31@0: 1 keys, 33207 bytes
+2025/07/09-21:00:57.348 4584 Compacted 4@0 + 1@1 files => 33207 bytes
+2025/07/09-21:00:57.352 4584 compacted to: files[ 0 1 1 0 0 0 0 ]
+2025/07/09-21:00:57.353 4584 Delete type=2 #30
+2025/07/09-21:00:57.353 4584 Delete type=2 #24
+2025/07/09-21:00:57.353 4584 Delete type=2 #27
+2025/07/09-21:00:57.353 4584 Delete type=2 #21
+2025/07/09-21:00:57.353 4584 Delete type=2 #18

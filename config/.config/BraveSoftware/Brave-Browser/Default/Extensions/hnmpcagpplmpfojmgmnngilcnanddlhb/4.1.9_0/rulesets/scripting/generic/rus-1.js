@@ -1,0 +1,1 @@
+"use strict";!function(){const e=[[7954126,'a#mobtop[title^="Рейтинг мобильных сайтов"]']],t=self.genericSelectorMap||new Map;if(0!==t.size){for(const o of e){const e=t.get(o[0]);t.set(o[0],void 0===e?o[1]:`${e},${o[1]}`)}self.genericSelectorMap=t}else self.genericSelectorMap=new Map(e)}();
