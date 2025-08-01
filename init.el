@@ -258,7 +258,7 @@
   :mode
   (("\\.phtml\\'" . web-mode)
    ("\\.php\\'" . web-mode)
-   ("\\.tpl\\'" . web-mode)
+   ("\\.tmpl\\'" . web-mode)
    ("\\.[agj]sp\\'" . web-mode)
    ("\\.as[cp]x\\'" . web-mode)
    ("\\.erb\\'" . web-mode)

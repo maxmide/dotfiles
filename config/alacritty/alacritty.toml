@@ -1,5 +1,5 @@
 [font]
-size = 12
+size = 13
 
 [font.bold]
 family = "firacode"
@@ -22,7 +22,7 @@ history = 10000
 multiplier = 3
 
 [window.dimensions]
-columns = 115
+columns = 109
 lines = 29
 
 [window.padding]

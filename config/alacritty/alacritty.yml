@@ -1,6 +1,6 @@
 window:
   dimensions:
-    columns: 115
+    columns: 109
     lines: 29
   padding:
     x: 0
@@ -29,6 +29,6 @@ font:
   bold_italic:
     family: firacode
     style: BoldItalic
-  size: 12
+  size: 13
 draw_bold_text_with_bright_colors: true    
 

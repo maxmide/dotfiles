@@ -114,10 +114,14 @@ if ! shopt -oq posix; then
   fi
 fi
 
+export GOBIN="$HOME/.local/go/bin"
+export GOPATH="$HOME/.local/gopath"
+
 export PATH=$PATH:/usr/local/go/bin
 export PATH=$PATH:~/.local/go/bin
+export GOPATH="$HOME/.local/gopath"
 export PATH=$PATH:~/.local/bin
-export PATH=$PATH:~/.local/bin/zig
+export PATH=$PATH:~/.local/zig
 export EDITOR=vim
 
 export PS1="\W > "
