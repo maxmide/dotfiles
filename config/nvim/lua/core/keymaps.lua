@@ -14,3 +14,8 @@ vim.opt.shiftround = true
 vim.opt.expandtab = true
 
 vim.opt.smartindent = true
+
+vim.cmd [[
+  highlight Normal ctermbg=none
+  highlight NonText ctermbg=none
+]]

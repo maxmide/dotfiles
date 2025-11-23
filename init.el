@@ -15,7 +15,10 @@
 (setq make-backup-files nil)
 (setq auto-save-default nil)
 
-(set-face-attribute 'default nil :font "firacode" :height 130)
+(set-face-attribute 'default nil :font "firacode" :height 120)
+
+;; Transparency
+(add-to-list 'default-frame-alist '(alpha-background . 80))
 
 ;; Make ESC quit prompts
 (global-set-key (kbd "<escape>") 'keyboard-escape-quit)
@@ -185,7 +188,57 @@
   :custom ((doom-modeline-height 15)))
 
 ;; org-mode
-(use-package org)
+(defun max/org-mode-setup ()
+  (org-indent-mode)
+  (variable-pitch-mode 1)
+  (auto-fill-mode 0)
+  (setq evil-auto-indent nil))
+
+  ;:hook (org-mode . max/org-mode-setup)
+(use-package org
+  :config
+  (setq org-ellipsis " ▾"
+        org-hide-emphasis-markers t))
+
+(use-package org-bullets
+  :hook (org-mode . org-bullets-mode)
+  :custom
+  (org-bullets-bullet-list '("◉" "○" "●" "○" "●" "○" "●")))
+
+(font-lock-add-keywords 'org-mode
+                          '(("^ *\\([-]\\) "
+                             (0 (prog1 () (compose-region (match-beginning 1) (match-end 1) "•"))))))
+
+(dolist (face '((org-level-1 . 1.2)
+                (org-level-2 . 1.1)
+                (org-level-3 . 1.05)
+                (org-level-4 . 1.0)
+                (org-level-5 . 1.1)
+                (org-level-6 . 1.1)
+                (org-level-7 . 1.1)
+                (org-level-8 . 1.1)))
+  (set-face-attribute (car face) nil :font "Iosevka" :weight 'regular :height (cdr face))
+
+;; Ensure that anything that should be fixed-pitch in Org files appears that way
+  (set-face-attribute 'org-block nil    :foreground nil :inherit 'fixed-pitch)
+  (set-face-attribute 'org-table nil    :inherit 'fixed-pitch)
+  (set-face-attribute 'org-formula nil  :inherit 'fixed-pitch)
+  (set-face-attribute 'org-code nil     :inherit '(shadow fixed-pitch))
+  (set-face-attribute 'org-table nil    :inherit '(shadow fixed-pitch))
+  (set-face-attribute 'org-verbatim nil :inherit '(shadow fixed-pitch))
+  (set-face-attribute 'org-special-keyword nil :inherit '(font-lock-comment-face fixed-pitch))
+  (set-face-attribute 'org-meta-line nil :inherit '(font-lock-comment-face fixed-pitch))
+  (set-face-attribute 'org-checkbox nil  :inherit 'fixed-pitch)
+  (set-face-attribute 'line-number nil :inherit 'fixed-pitch)
+  (set-face-attribute 'line-number-current-line nil :inherit 'fixed-pitch))
+
+(defun max/org-mode-visual-fill ()
+  (setq visual-fill-column-width 80
+        visual-fill-column-center-text t)
+  (visual-fill-column-mode 1))
+
+(use-package visual-fill-column
+  :hook (org-mode . max/org-mode-visual-fill))
 
 ;; Company
 (use-package company
@@ -198,6 +251,11 @@
   :custom
   (company-minimum-prefix-length 1)
   (company-idle-delay 0.0))
+
+;; LaTeX
+(use-package auctex
+  :ensure t
+  :defer t)
 
 
 (electric-pair-mode 1)

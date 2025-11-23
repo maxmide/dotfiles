@@ -54,3 +54,7 @@ colorscheme gruvbox
 set encoding=utf-8
 set t_co=256
 
+"highlight Normal guibg=none
+"highlight NonText guibg=none
+highlight Normal ctermbg=none
+highlight NonText ctermbg=none

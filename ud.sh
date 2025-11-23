@@ -6,6 +6,8 @@ cp -r ~/.config/nvim/lua ~/.dotfiles/config/nvim/
 cp -r ~/.config/alacritty/ ~/.dotfiles/config/
 cp -r ~/.config/kitty/ ~/.dotfiles/config/
 cp -r ~/.config/mpv/mpv.conf ~/.dotfiles/config/mpv/mpv.conf
+cp -r ~/.config/picom/ ~/.dotfiles/config/
+cp -r ~/.config/i3/ ~/.dotfiles/config/
 
 cp ~/.config/fish/config.fish ~/.dotfiles/
 cp ~/.emacs.d/init.el ~/.dotfiles/
