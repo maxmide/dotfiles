@@ -52,7 +52,7 @@ tiling_drag modifier titlebar
 bindsym $mod+Return exec alacritty
 
 # kill focused window
-bindsym $mod+Shift+q kill
+bindsym $mod+q kill
 
 # start dmenu (a program launcher)
 bindsym $mod+p exec --no-startup-id dmenu_run
@@ -121,8 +121,8 @@ set $ws1 "1: "
 set $ws2 "2: "
 set $ws3 "3: "
 set $ws4 "4: "
-set $ws5 "5: ♪"
-set $ws6 "6: "
+set $ws5 "5: "
+set $ws6 "6: ♪"
 set $ws7 "7"
 set $ws8 "8"
 set $ws9 "9"
@@ -192,12 +192,14 @@ bar {
         status_command i3blocks -c /home/maxwell/.config/i3/i3blocks.conf
 }
 
-exec_always feh --bg-fill /home/maxwell/Pictures/wallpapers/pexels_walid.jpg
+exec_always feh --bg-fill /home/maxwell/Pictures/wallpapers/13.jpg
 
 # Assign programs to workspaces
 for_window [class="firefox"] move to workspace number $ws2 
 for_window [class="Emacs"] move to workspace number $ws3 
 for_window [class="mpv"] move to workspace number $ws4 
+for_window [class="Evince"] move to workspace number $ws5 
+for_window [class="Audacious"] move to workspace number $ws6 
 
 # Configure 5px of space between windows and to the screen edges.
 gaps inner 5px

@@ -119,7 +119,7 @@ export GOPATH="$HOME/.local/gopath"
 
 export PATH=$PATH:/usr/local/go/bin
 export PATH=$PATH:~/.local/go/bin
-export GOPATH="$HOME/.local/gopath"
+export PATH=$PATH:~/.local/gopath
 export PATH=$PATH:~/.local/bin
 export PATH=$PATH:~/.local/scripts
 export PATH=$PATH:~/.local/zig
@@ -129,3 +129,5 @@ export PS1="\W > "
 . "$HOME/.cargo/env"
 
 [ -f "/home/maxwell/.ghcup/env" ] && . "/home/maxwell/.ghcup/env" # ghcup-env
+
+export LS_COLORS="di=1;34:ln=1;36:so=1;31:pi=1;33:ex=1;32:*.txt=1;33"

@@ -23,6 +23,10 @@
 ;; Make ESC quit prompts
 (global-set-key (kbd "<escape>") 'keyboard-escape-quit)
 
+;; Scale text
+(global-set-key (kbd "C-=") 'text-scale-increase)
+(global-set-key (kbd "C--") 'text-scale-decrease)
+
 ;; Emacs line numbers
 (column-number-mode)
 (global-display-line-numbers-mode t)
@@ -185,7 +189,7 @@
 
 (use-package doom-modeline
   :init (doom-modeline-mode 1)
-  :custom ((doom-modeline-height 15)))
+  :custom ((doom-modeline-height 20)))
 
 ;; org-mode
 (defun max/org-mode-setup ()
@@ -238,7 +242,8 @@
   (visual-fill-column-mode 1))
 
 (use-package visual-fill-column
-  :hook (org-mode . max/org-mode-visual-fill))
+  :hook (org-mode . max/org-mode-visual-fill)
+  :hook (fountain-mode . max/org-mode-visual-fill))
 
 ;; Company
 (use-package company
