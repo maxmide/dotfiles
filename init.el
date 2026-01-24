@@ -27,6 +27,32 @@
 (global-set-key (kbd "C-=") 'text-scale-increase)
 (global-set-key (kbd "C--") 'text-scale-decrease)
 
+;; Read bash
+(use-package exec-path-from-shell
+  :ensure t
+  :config
+  (exec-path-from-shell-initialize))
+
+(require 'exec-path-from-shell)
+(exec-path-from-shell-initialize)
+
+;; Never ask before saving
+(setq desktop-save 'always)
+
+;; Auto-save the desktop periodically (crash safety)
+(setq desktop-auto-save-timeout 60) ; every 60 seconds
+
+;; Restore frames and buffers
+(setq desktop-restore-frames t)
+
+(desktop-save-mode 1)
+
+;; Remember cursor position
+(save-place-mode 1)
+
+;; Track recent files
+(recentf-mode 1)
+
 ;; Emacs line numbers
 (column-number-mode)
 (global-display-line-numbers-mode t)
@@ -418,3 +444,23 @@
   ;; per mode with `ligature-mode'.
   (global-ligature-mode t))
 
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(package-selected-packages
+   '(all-the-icons-nerd-fonts auctex company counsel doom-modeline
+                              doom-themes evil exec-path-from-shell
+                              fountain-mode general go-mode helpful
+                              hydra ivy-rich ligature lsp-pyright
+                              org-bullets projectile python-mode
+                              rainbow-delimiters use-package
+                              visual-fill visual-fill-column web-mode
+                              which-key zig-mode)))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
