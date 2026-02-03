@@ -1,0 +1,54 @@
+Xft.dpi: 120
+
+!xterm*background: black
+!xterm*foreground: white
+!xterm*renderFont: true
+xterm*faceName: firacode
+xterm*faceSize: 12
+
+! Set default terminal size (in characters)
+XTerm*geometry: 116x30+100+50
+
+! Allow 256 colors
+XTerm*termName: xterm-256color
+
+! Colors: Gruvbox-inspired dark theme
+XTerm*foreground: #ebdbb2
+XTerm*background: #1d2021
+XTerm*cursorColor: #fabd2f
+XTerm*color0:  #282828
+XTerm*color1:  #cc241d
+XTerm*color2:  #98971a
+XTerm*color3:  #d79921
+XTerm*color4:  #458588
+XTerm*color5:  #b16286
+XTerm*color6:  #689d6a
+XTerm*color7:  #a89984
+XTerm*color8:  #928374
+XTerm*color9:  #fb4934
+XTerm*color10: #b8bb26
+XTerm*color11: #fabd2f
+XTerm*color12: #83a598
+XTerm*color13: #d3869b
+XTerm*color14: #8ec07c
+XTerm*color15: #ebdbb2
+
+! Scrollback buffer and scrollbar behavior
+XTerm*saveLines: 10000
+XTerm*scrollBar: false
+XTerm*rightScrollBar: true
+XTerm*scrollKey: true
+XTerm*scrollTtyOutput: false
+XTerm*scrollTtyKeypress: true
+
+! Enable bold colors
+XTerm*colorBD: #ffffff
+XTerm*boldColors: true
+
+! Bell off
+XTerm*visualBell: true
+XTerm*bellIsUrgent: false
+
+! Use UTF-8
+XTerm*utf8: 2
+

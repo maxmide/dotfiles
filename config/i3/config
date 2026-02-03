@@ -109,7 +109,7 @@ bindsym $mod+f fullscreen toggle
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+s layout stacking
 bindsym $mod+w layout tabbed
-bindsym $mod+e layout toggle split
+bindsym $mod+t layout toggle split
 
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
@@ -228,4 +228,24 @@ exec_always --no-startup-id xinput set-prop 10 "libinput Natural Scrolling Enabl
 # tap to click
 exec_always --no-startup-id xinput set-prop 10 "libinput Tapping Enabled" 1
 
-exec_always --no-startup-id picom --backend glx 
+exec_always --no-startup-id picom --backend glx
+
+## Keybindings
+
+# Firefox
+bindsym $mod+x exec --no-startup-id firefox
+
+# Emacs (GUI)
+bindsym $mod+e exec --no-startup-id emacs
+
+# Zen Browser
+bindsym $mod+z exec --no-startup-id /usr/bin/flatpak run --branch=stable --arch=x86_64 --command=launch-script.sh --file-forwarding app.zen_browser.zen
+
+# Chrome
+bindsym $mod+g exec --no-startup-id google-chrome-stable
+
+# Brave Browser
+bindsym $mod+b exec --no-startup-id brave-browser
+
+# opera
+bindsym $mod+o exec --no-startup-id opera

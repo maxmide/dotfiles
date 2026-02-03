@@ -14,3 +14,4 @@ cp ~/.emacs.d/init.el ~/.dotfiles/
 cp ~/.bashrc ~/.dotfiles/bashrc
 cp ~/.vimrc ~/.dotfiles/vimrc
 
+cp ~/.Xresources ~/.dotfiles/Xresources
