@@ -93,6 +93,7 @@ fi
 #alias l='ls -CF'
 
 alias python=python3
+alias lf=lfub
 
 # Alias definitions.
 # You may want to put all your additions into a separate file like

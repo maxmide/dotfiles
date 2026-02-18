@@ -1,0 +1,24 @@
+# Core
+set shell bash
+set tabstop 4
+set scrolloff 5
+set wrapscroll
+set drawbox
+set icons
+
+# Preview support
+set previewer '~/.config/lf/previewer'
+set cleaner '~/.config/lf/cleaner'
+
+# UI
+set promptfmt "%w %f"
+
+# Movement (vim-like)
+map h updir
+map j down
+map k up
+map l open
+
+# Page scrolling
+map <c-u> half-up
+map <c-d> half-down
