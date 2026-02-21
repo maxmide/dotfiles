@@ -10,6 +10,8 @@ cp -r ~/.config/picom/ ~/.dotfiles/config/
 cp -r ~/.config/i3/ ~/.dotfiles/config/
 cp -r ~/.config/lf/ ~/.dotfiles/config/
 
+cp -r ~/.local/bin/lfub ~/.dotfiles/lfub
+
 cp ~/.config/fish/config.fish ~/.dotfiles/
 cp ~/.emacs.d/init.el ~/.dotfiles/
 cp ~/.bashrc ~/.dotfiles/bashrc

@@ -126,7 +126,29 @@ mime_preview() {
 			|| pdftoppm -jpeg -f 1 -singlefile "$1" "$CACHE"
 		image "$CACHE.jpg" "$2" "$3" "$4" "$5" "$1"
 	;;
-	(application/font*,0 | application/*opentype,0 | font/sfnt,0)  # .ttf, .otf
+
+    # Epub image viewer
+    (*epub+zip,0)
+        create_cache "$1"
+        # If we already have a cached preview, use it
+        if [ ! -f "$CACHE" ]; then
+            # Try to extract cover image from EPUB
+            tmpdir=$(mktemp -d)
+            unzip -q "$1" -d "$tmpdir"
+            # EPUB cover detection: common filenames
+            cover=$(find "$tmpdir" -type f \( -iname "cover.*" -o -iname "*cover*.jpg" -o -iname "*cover*.png" \) | head -n1)
+            if [ -n "$cover" ]; then
+                cp "$cover" "$CACHE"
+            else
+                # fallback: generate blank image
+                convert -size 800x1000 xc:#1f2430 "$CACHE"
+            fi
+            rm -rf "$tmpdir"
+        fi
+        image "$CACHE" "$2" "$3" "$4" "$5" "$1"
+    ;;
+
+    (application/font*,0 | application/*opentype,0 | font/sfnt,0)  # .ttf, .otf
 		create_cache "$1"
 		[ -f "$CACHE.png" ] \
 			|| convert -size "800x800" "xc:#000000" -fill "#ffffff" \
@@ -155,8 +177,8 @@ mime_preview() {
 	(text/rtf,0 | *msword,0 )  # .doc, doesn't always work
 		catdoc -- "$1"
 	;;
-	(*wordprocessingml.document|*/epub+zip|*/x-fictionbook+xml)  # .docx
-		pandoc -s -t markdown -- "$1"
+	(*wordprocessingml.document,0|*/epub+zip|*/x-fictionbook+xml)  # .docx
+	    pandoc -s -t markdown -- "$1"
 	;;
 	#(message/rfc822)
 		# https://github.com/djcb/mu
