@@ -22,3 +22,5 @@ map l open
 # Page scrolling
 map <c-u> half-up
 map <c-d> half-down
+
+map i rename
