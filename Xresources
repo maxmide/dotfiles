@@ -1,0 +1,71 @@
+Xft.dpi: 120
+
+!xterm*background: black
+!xterm*foreground: white
+!xterm*renderFont: true
+!xTerm*faceName: "JetBrains Mono"
+!xTerm*faceSize: 14
+
+XTerm*renderFont: true
+XTerm*faceName: JetBrainsMono:size=14
+
+! Set default terminal size (in characters)
+XTerm*geometry: 116x30+100+50
+
+! Allow 256 colors
+XTerm*termName: xterm-256color
+
+XTerm*selectToClipboard: true
+XTerm*VT100*translations: #override \
+    Ctrl Shift <Key>C: copy-selection(CLIPBOARD) \n\
+    Ctrl Shift <Key>V: insert-selection(CLIPBOARD)
+
+! Atom One Dark theme for xterm
+xterm*background: #282c34
+xterm*foreground: #abb2bf
+xterm*cursorColor: #528bff
+
+! Black
+xterm*color0: #282c34
+xterm*color8: #5c6370
+! Red
+xterm*color1: #e06c75
+xterm*color9: #e06c75
+! Green
+xterm*color2: #98c379
+xterm*color10: #98c379
+! Yellow
+xterm*color3: #d19a66
+xterm*color11: #d19a66
+! Blue
+xterm*color4: #61afef
+xterm*color12: #61afef
+! Magenta
+xterm*color5: #c678dd
+xterm*color13: #c678dd
+! Cyan
+xterm*color6: #56b6c2
+xterm*color14: #56b6c2
+! White
+xterm*color7: #abb2bf
+xterm*color15: #ffffff
+
+! Scrollback buffer and scrollbar behavior
+XTerm*saveLines: 10000
+XTerm*scrollBar: false
+XTerm*rightScrollBar: true
+XTerm*scrollKey: true
+XTerm*scrollTtyOutput: false
+XTerm*scrollTtyKeypress: true
+
+! Enable bold colors
+XTerm*colorBD: #ffffff
+XTerm*boldColors: true
+
+! Bell off
+XTerm*visualBell: true
+XTerm*bellIsUrgent: false
+
+! Use UTF-8
+XTerm*utf8: 2
+

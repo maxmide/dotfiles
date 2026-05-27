@@ -1,0 +1,73 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+# ===== CONFIG =====
+LOGFILE="$HOME/backup.log"
+LOCKFILE="/tmp/rclone_backup.lock"
+RCLONE_BIN="$(command -v rclone)"
+
+# Tune these if needed
+RCLONE_OPTS=(
+  --stats=1m
+  --transfers=4
+  --checkers=8
+  --timeout=10m
+  --contimeout=2m
+  --retries=3
+  --low-level-retries=10
+  --log-file="$LOGFILE"
+  --log-level=INFO
+  --filter-from "/home/maxwell/.config/rclone/excludes.txt"
+)
+
+# ===== HELPERS =====
+log() {
+  echo "$(date '+%Y-%m-%d %H:%M:%S') - $*" | tee -a "$LOGFILE"
+}
+
+cleanup() { rm -f "$LOCKFILE"; }
+trap cleanup EXIT
+
+# Prevent overlapping runs
+if [[ -e "$LOCKFILE" ]]; then
+  log "Another backup is already running. Exiting."
+  exit 1
+fi
+touch "$LOCKFILE"
+
+# Basic sanity checks
+if [[ -z "$RCLONE_BIN" ]]; then
+  log "rclone not found in PATH"
+  exit 1
+fi
+
+for d in /mnt/Maxwell/Files /mnt/Maxwell/Writing; do
+  if [[ ! -d "$d" ]]; then
+    log "Source directory missing: $d"
+    exit 1
+  fi
+done
+
+log "===== BACKUP STARTED ====="
+
+run_sync() {
+  local SRC="$1"
+  local DEST="$2"
+
+  log "Sync: $SRC -> $DEST"
+  if "$RCLONE_BIN" sync "$SRC" "$DEST" "${RCLONE_OPTS[@]}"; then
+    log "SUCCESS: $SRC -> $DEST"
+  else
+    log "FAIL: $SRC -> $DEST"
+  fi
+}
+
+# ===== GOOGLE DRIVE =====
+run_sync "/mnt/Maxwell/Files"   "drive:Backups/Files"
+run_sync "/mnt/Maxwell/Writing" "drive:Backups/Writing"
+
+# ===== SECOND REMOTE (Dropbox/OneDrive) =====
+run_sync "/mnt/Maxwell/Files"   "dropbox:Backups/Files"
+run_sync "/mnt/Maxwell/Writing" "dropbox:Backups/Writing"
+
+log "===== BACKUP FINISHED ====="

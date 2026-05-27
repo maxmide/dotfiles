@@ -1,0 +1,32 @@
+# Core
+set shell bash
+set tabstop 4
+set scrolloff 5
+set wrapscroll
+set drawbox
+#set icons
+
+# Preview support
+set previewer '~/.config/lf/previewer'
+set cleaner '~/.config/lf/cleaner'
+#source '~/.config/lf/opener'
+
+# UI
+set promptfmt "%w %f"
+
+cmd mkdir $mkdir -p "$(echo $* | tr ' ' '\ ')"
+cmd trash %trash-put "$fx"
+
+# Movement (vim-like)
+map h updir
+map j down
+map k up
+map l open
+
+# Page scrolling
+map <c-u> half-up
+map <c-d> half-down
+
+map i rename
+map <a-d> delete
+map D trash

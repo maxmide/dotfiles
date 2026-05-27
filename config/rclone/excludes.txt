@@ -1,0 +1,41 @@
+# Git
+- .git/
+- .gitignore
+- .gitattributes
+
+# Dependency directories
+- vendor/
+- node_modules/
+
+# Python
+- __pycache__/
+- *.pyc
+- .venv/
+- venv/
+
+# Build/cache junk
+- .cache/
+- tmp/
+- temp/
+- dist/
+- build/
+- target/
+
+# Editors
+- .vscode/
+- .idea/
+
+# OS junk
+- .DS_Store
+- Thumbs.db
+
+# Logs
+- *.log
+
+# Swap/temp files
+- *.swp
+- *.tmp
+- *~
+
+# Trash
+- .Trash-*/
