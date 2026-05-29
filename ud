@@ -11,8 +11,8 @@ cp -r ~/.config/lf/ ~/.dotfiles/config/
 cp -r ~/.config/rclone/excludes.txt ~/.dotfiles/config/rclone/
 cp -r ~/.config/mpd/ ~/.dotfiles/config/
 cp -r ~/.config/tmux/ ~/.dotfiles/config/
+cp -r ~/.config/qutebrowser/config.py ~/.dotfiles/config/qutebrowser/
 
-cp -r ~/.vim/ ~/.dotfiles/vim/
 cp -r ~/.emacs.d/lisp/ ~/.dotfiles/lisp/
 
 cp -r ~/.local/bin/lfub ~/.dotfiles/lfub

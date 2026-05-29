@@ -26,6 +26,13 @@ vim.opt.wrap = false          -- no line wrapping
 vim.opt.ignorecase = true     -- case insensitive search
 vim.opt.smartcase = true      -- unless capital letters used
 vim.opt.termguicolors = true  -- better colors
+vim.opt.cursorline = true
+
+-- Escape clear search highlight
+vim.keymap.set("n", "<Esc>", function()
+  vim.cmd("nohlsearch")
+  return "<Esc>"
+end, { expr = true, silent = true })
 
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
@@ -40,6 +47,10 @@ vim.opt.updatetime     = 150       -- faster CursorHold / gitsigns refresh
 vim.opt.splitbelow     = true
 vim.opt.splitright     = true
 vim.opt.clipboard      = "unnamedplus"  -- sync with system clipboard
+
+vim.opt.cmdheight = 0
+vim.opt.laststatus = 3
+vim.opt.winbar = nil
 
 -- Setup lazy.nvim
 require("lazy").setup({
@@ -84,8 +95,8 @@ require("lazy").setup({
           options = {
             theme                = "onedark",
             globalstatus         = true,      -- single statusline for all windows
-            section_separators   = "",        -- clean flat look
-            component_separators = "|",
+            --section_separators   = "",        -- clean flat look
+            --component_separators = "|",
           },
           sections = {
             lualine_a = { "mode" },
