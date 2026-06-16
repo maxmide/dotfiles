@@ -207,7 +207,7 @@ bar {
         status_command i3blocks -c /home/maxwell/.config/i3/i3blocks.conf
 }
 
-exec_always feh --bg-fill /home/maxwell/Pictures/wallpapers/1.jpg
+exec_always feh --bg-fill /home/maxwell/Pictures/wallpapers/6.jpg
 
 # Assign programs to workspaces
 for_window [class="firefox"] move to workspace number $ws2 
@@ -245,9 +245,12 @@ bindsym $mod+x exec --no-startup-id firefox
 # Emacs (GUI)
 bindsym $mod+e exec --no-startup-id emacsclient -c -a emacs
 
-# Brave Browser
+# Browser
 bindsym $mod+b exec --no-startup-id qutebrowser
 
+bindsym $mod+m exec --no-startup-id kitty
+
 # open mousepad in floating mode
-for_window [class="mousepad"] floating enable#, resize set 1260 750
-#for_window [class="mousepad"] move position center
+for_window [class="mousepad"] floating enable , resize set 1260 750, move position center
+
+for_window [class="(?i)calibre"] floating enable, resize set 980 1030, move position center

@@ -112,6 +112,7 @@ c.url.searchengines = {
     "g": "https://google.com/search?q={}",
     "gh": "https://github.com/search?q={}",
     "yt": "https://youtube.com/results?search_query={}",
+    "wk": "https://wikipedia.com/search?q={}",
 }
 
 c.url.start_pages = ["https://start.duckduckgo.com"]

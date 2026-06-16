@@ -1,0 +1,142 @@
+#!/bin/sh
+# timer - POSIX compliant countdown timer
+# Usage: timer [Nh] [Nm] [Ns]
+#        timer N        => Nh 0m 0s
+#        timer N M      => Nh Mm 0s
+#        timer N M S    => Nh Mm Ss
+
+SOUND="/mnt/Maxwell/Media/Music/Favourite/Sak Srolanh Mouy Brav.mp3"
+
+usage() {
+    echo "Usage: timer [Nh] [Nm] [Ns]"
+    echo "  timer 1          => 1h 0m 0s"
+    echo "  timer 1 30       => 1h 30m 0s"
+    echo "  timer 1 30 20    => 1h 30m 20s"
+    echo "  timer 1h 30m 20s => 1h 30m 20s"
+    echo "  timer 20m 30s    => 0h 20m 30s"
+    exit 1
+}
+
+# Parse a token: strip unit suffix and return the number
+# Sets parsed_val and parsed_unit
+parse_token() {
+    token="$1"
+    # Extract trailing unit letter(s)
+    unit=$(printf '%s' "$token" | sed 's/^[0-9]*//')
+    num=$(printf '%s' "$token" | sed 's/[^0-9].*//')
+
+    # Validate number part
+    case "$num" in
+        ''|*[!0-9]*)
+            echo "Error: invalid argument '$token'" >&2
+            exit 1
+            ;;
+    esac
+
+    parsed_val="$num"
+    parsed_unit="$unit"
+}
+
+H=0
+M=0
+S=0
+
+if [ $# -eq 0 ]; then
+    usage
+fi
+
+# Check if arguments have explicit unit suffixes
+has_units=0
+for arg in "$@"; do
+    case "$arg" in
+        *[hHmMsS]) has_units=1 ;;
+    esac
+done
+
+if [ "$has_units" -eq 1 ]; then
+    # Parse each argument by its unit suffix
+    for arg in "$@"; do
+        parse_token "$arg"
+        case "$parsed_unit" in
+            h|H) H="$parsed_val" ;;
+            m|M) M="$parsed_val" ;;
+            s|S) S="$parsed_val" ;;
+            '')
+                # No unit on a mixed-unit invocation — error
+                echo "Error: '$arg' has no unit; mix units consistently or omit all units" >&2
+                exit 1
+                ;;
+            *)
+                echo "Error: unknown unit '$parsed_unit' in '$arg'" >&2
+                exit 1
+                ;;
+        esac
+    done
+else
+    # No units: positional — h [m [s]]
+    case $# in
+        1)
+            parse_token "$1"; H="$parsed_val"
+            ;;
+        2)
+            parse_token "$1"; H="$parsed_val"
+            parse_token "$2"; M="$parsed_val"
+            ;;
+        3)
+            parse_token "$1"; H="$parsed_val"
+            parse_token "$2"; M="$parsed_val"
+            parse_token "$3"; S="$parsed_val"
+            ;;
+        *)
+            echo "Error: too many arguments (max 3 without units)" >&2
+            usage
+            ;;
+    esac
+fi
+
+# Validate ranges
+if [ "$M" -ge 60 ] || [ "$S" -ge 60 ]; then
+    echo "Warning: minutes or seconds >= 60; values will be used as-is"
+fi
+
+total=$(( H * 3600 + M * 60 + S ))
+
+if [ "$total" -eq 0 ]; then
+    echo "Error: timer duration is zero" >&2
+    exit 1
+fi
+
+printf "Timer set: %dh %dm %ds (%d seconds)\n" "$H" "$M" "$S" "$total"
+
+
+end=$(( $(date +%s) + total ))
+
+while :; do
+    now=$(date +%s)
+    remaining=$(( end - now ))
+
+    [ "$remaining" -le 0 ] && break
+# Countdown loop
+#remaining="$total"
+#while [ "$remaining" -gt 0 ]; do
+    dh=$(( remaining / 3600 ))
+    dm=$(( (remaining % 3600) / 60 ))
+    ds=$(( remaining % 60 ))
+    printf "\r  %02d:%02d:%02d  " "$dh" "$dm" "$ds"
+    sleep 1
+#    remaining=$(( remaining - 1 ))
+done
+
+printf "\r  00:00:00  \n"
+echo "Time's up!"
+
+play_sound() {
+    if [ ! -f "$SOUND" ]; then
+        echo "(Sound file not found: $SOUND)"
+        return
+    fi
+    if command -v mpv   >/dev/null 2>&1; then mpv --no-video "$SOUND" 2>/dev/null; return; fi
+    echo "(No audio player found — install mpv, ffplay, or mpg123)"
+}
+
+play_sound

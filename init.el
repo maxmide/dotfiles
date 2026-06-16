@@ -19,7 +19,7 @@
 (set-face-attribute 'default nil
   :family "JetBrains Mono"
   :weight 'medium   ;; or 'semibold
-  :height 140)
+  :height 150)
 
 ;(set-face-attribute 'default nil :font "iosevka" :height 150)
 
@@ -268,15 +268,16 @@
 ;; org-mode
 (defun max/org-mode-setup ()
   (org-indent-mode)
-  (variable-pitch-mode 1)
+  ;;(variable-pitch-mode 1)
   (auto-fill-mode 0)
   (setq evil-auto-indent nil))
 
-  ;:hook (org-mode . max/org-mode-setup)
 (use-package org
+  :hook (org-mode . max/org-mode-setup)
   :config
   (setq org-ellipsis " ▾"
-        org-hide-emphasis-markers t)
+        org-hide-emphasis-markers t
+        org-adapt-indentation t)
   (setq org-preview-latex-image-directory "/tmp/ltximg/"))
 
 (use-package org-bullets
@@ -287,29 +288,6 @@
 (font-lock-add-keywords 'org-mode
                           '(("^ *\\([-]\\) "
                              (0 (prog1 () (compose-region (match-beginning 1) (match-end 1) "•"))))))
-
-(dolist (face '((org-level-1 . 1.2)
-                (org-level-2 . 1.1)
-                (org-level-3 . 1.05)
-                (org-level-4 . 1.0)
-                (org-level-5 . 1.1)
-                (org-level-6 . 1.1)
-                (org-level-7 . 1.1)
-                (org-level-8 . 1.1)))
-    (set-face-attribute (car face) nil :font "Iosevka" :weight 'bold :height (cdr face))
-    
-    ;; Ensure that anything that should be fixed-pitch in Org files appears that way
-    (set-face-attribute 'org-block nil    :foreground nil :inherit 'fixed-pitch)
-    (set-face-attribute 'org-table nil    :inherit 'fixed-pitch)
-    (set-face-attribute 'org-formula nil  :inherit 'fixed-pitch)
-    (set-face-attribute 'org-code nil     :inherit '(shadow fixed-pitch))
-    (set-face-attribute 'org-table nil    :inherit '(shadow fixed-pitch))
-    (set-face-attribute 'org-verbatim nil :inherit '(shadow fixed-pitch))
-    (set-face-attribute 'org-special-keyword nil :inherit '(font-lock-comment-face fixed-pitch))
-    (set-face-attribute 'org-meta-line nil :inherit '(font-lock-comment-face fixed-pitch))
-    (set-face-attribute 'org-checkbox nil  :inherit 'fixed-pitch)
-    (set-face-attribute 'line-number nil :inherit 'fixed-pitch)
-    (set-face-attribute 'line-number-current-line nil :inherit 'fixed-pitch))
 
 (with-eval-after-load 'org
   (setq org-format-latex-options
@@ -533,3 +511,23 @@
   ;; per mode with `ligature-mode'.
   (global-ligature-mode t))
 
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(package-selected-packages
+   '(all-the-icons-dired atom-one-dark-theme auctex cargo company counsel
+                         doom-modeline doom-themes evil-collection
+                         exec-path-from-shell fountain-mode general
+                         go-mode helpful ivy-rich julia-mode
+                         julia-repl ligature lsp-mode org-bullets
+                         org-wc projectile rainbow-delimiters
+                         rust-mode treemacs-nerd-icons
+                         visual-fill-column web-mode zig-mode)))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )

@@ -1,9 +1,9 @@
 set nocompatible
 
-"filetype on
-"filetype plugin on
-"filetype plugin indent on
-"syntax on
+filetype on
+filetype plugin on
+filetype plugin indent on
+syntax on
 set mouse=a
 set rnu
 set number
@@ -39,12 +39,10 @@ Plug 'jiangmiao/auto-pairs'
 
 call plug#end()
 
-"set background=dark
+set background=dark
 colorscheme onedark
 
 set encoding=utf-8
 
-"highlight Normal guibg=none
-"highlight NonText guibg=none
 highlight Normal ctermbg=none
 highlight NonText ctermbg=none
