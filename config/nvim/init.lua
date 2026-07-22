@@ -86,6 +86,54 @@ require("lazy").setup({
       end
     },
 
+    -- File explorer
+    {
+      "nvim-neo-tree/neo-tree.nvim",
+      branch = "v3.x",
+      dependencies = {
+        "nvim-lua/plenary.nvim",
+        "nvim-tree/nvim-web-devicons",
+        "MunifTanjim/nui.nvim",
+      },
+      cmd = "Neotree",
+      keys = {
+        { "<leader>e", "<cmd>Neotree toggle<cr>", desc = "Toggle Neo-tree" },
+      },
+      opts = {
+        close_if_last_window = true,
+        window = {
+          width = 30,
+        },
+        filesystem = {
+          follow_current_file = { enabled = true },
+          use_libuv_file_watcher = true,
+        },
+      },
+    },
+
+    -- Fuzzy finder
+    {
+      "nvim-telescope/telescope.nvim",
+      branch = "0.1.x",
+      dependencies = { "nvim-lua/plenary.nvim" },
+      cmd = "Telescope",
+      keys = {
+        { "<leader>ff", "<cmd>Telescope find_files<cr>", desc = "Find files" },
+        { "<leader>fg", "<cmd>Telescope live_grep<cr>", desc = "Live grep" },
+        { "<leader>fb", "<cmd>Telescope buffers<cr>", desc = "Buffers" },
+        { "<leader>fh", "<cmd>Telescope help_tags<cr>", desc = "Help tags" },
+      },
+      config = function()
+        require("telescope").setup({
+          defaults = {
+            preview = {
+              treesitter = false,
+            },
+          },
+        })
+      end,
+    },
+
     -- status line
     {
       "nvim-lualine/lualine.nvim",

@@ -21,8 +21,6 @@
   :weight 'medium   ;; or 'semibold
   :height 150)
 
-;(set-face-attribute 'default nil :font "iosevka" :height 150)
-
 ;; Transparency
 (add-to-list 'default-frame-alist '(alpha-background . 85))
 
@@ -39,27 +37,6 @@
   :config
   (exec-path-from-shell-initialize))
 
-;; Track recent files
-(recentf-mode 1)
-
-;; Limit recent files
-;;(setq recentf-max-saved-items 5)
-;;
-;;(defun my/open-last-file ()
-;;  (when recentf-list
-;;    (find-file (car recentf-list))))
-;;
-;;(add-hook 'emacs-startup-hook #'my/open-last-file)
-
-
-(defun my/open-last-file-on-client ()
-  (when (and recentf-list
-             (not (buffer-file-name)))
-    (find-file (car recentf-list))))
-
-(add-hook 'server-after-make-frame-hook #'my/open-last-file-on-client)
-
-
 ;; Emacs line numbers
 (column-number-mode)
 (global-display-line-numbers-mode t)
@@ -73,11 +50,11 @@
                 fountain-mode-hook
                 LaTeX-mode-hook
                 term-mode-hook
+                dired-mode-hook
                 shell-mode-hook
                 eshell-mode-hook
                 slime-repl-mode-hook))
   (add-hook mode (lambda () (display-line-numbers-mode 0))))
-
 
 ;; Enable visual-line-mode (word wrap) for specific modes
 (dolist (mode '(org-mode-hook
@@ -85,9 +62,6 @@
                 markdown-mode-hook
                 text-mode-hook))
   (add-hook mode (lambda () (visual-line-mode 1))))
-
-;; Ensure other modes truncate lines
-;; (setq-default truncate-lines t)
 
 ;; Initialize package sources
 (require 'package)
@@ -204,8 +178,6 @@
 
   (evil-set-initial-state 'message-buffer-mode 'normal)
   (evil-set-initial-state 'dashboard-mode 'normal))
-
-;;(add-hook 'evil-mode-hook #'max/evil-hook)
 
 (use-package evil-collection
   :after evil
@@ -511,23 +483,3 @@
   ;; per mode with `ligature-mode'.
   (global-ligature-mode t))
 
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(package-selected-packages
-   '(all-the-icons-dired atom-one-dark-theme auctex cargo company counsel
-                         doom-modeline doom-themes evil-collection
-                         exec-path-from-shell fountain-mode general
-                         go-mode helpful ivy-rich julia-mode
-                         julia-repl ligature lsp-mode org-bullets
-                         org-wc projectile rainbow-delimiters
-                         rust-mode treemacs-nerd-icons
-                         visual-fill-column web-mode zig-mode)))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
