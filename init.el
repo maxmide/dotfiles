@@ -22,7 +22,7 @@
   :height 150)
 
 ;; Transparency
-(add-to-list 'default-frame-alist '(alpha-background . 85))
+(add-to-list 'default-frame-alist '(alpha-background . 95))
 
 ;; Make ESC quit prompts
 (global-set-key (kbd "<escape>") 'keyboard-escape-quit)
@@ -38,9 +38,9 @@
   (exec-path-from-shell-initialize))
 
 ;; Emacs line numbers
-(column-number-mode)
-(global-display-line-numbers-mode t)
-(setq display-line-numbers-type 'relative)
+;(column-number-mode)
+;(global-display-line-numbers-mode t)
+;(setq display-line-numbers-type 'relative)
 
 ;; Highlight current line
 (global-hl-line-mode 1)
@@ -189,7 +189,7 @@
   :ensure nil
   :commands (dired dired-jump)
   :bind (("C-x C-j" . dired-jump))
-  :custom ((dired-listing-switches "-agho --group-directories-first"))
+  :custom ((dired-listing-switches "-gho --group-directories-first"))
   :config
   (evil-collection-define-key 'normal 'dired-mode-map
                               "h" 'dired-single-up-directory
@@ -225,8 +225,10 @@
 
 (use-package all-the-icons)
 
-(use-package doom-themes
-  :init (load-theme 'atom-one-dark t))
+(load-theme 'catppuccin :no-confirm)
+
+;(use-package doom-themes
+;  :init (load-theme 'atom-one-dark t))
 
 (use-package doom-modeline
   :init (doom-modeline-mode 1)

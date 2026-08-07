@@ -16,8 +16,8 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 -- Basic settings
-vim.opt.number = true         -- show line numbers
-vim.opt.relativenumber = true -- relative line numbers
+--vim.opt.number = true         -- show line numbers
+--vim.opt.relativenumber = true -- relative line numbers
 vim.opt.tabstop = 4           -- tab width
 vim.opt.shiftwidth = 4        -- indent width
 vim.opt.expandtab = true      -- use spaces instead of tabs
