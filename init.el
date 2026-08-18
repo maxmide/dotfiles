@@ -295,12 +295,35 @@
   :ensure t
   :defer t)
 
-
 (electric-pair-mode 1)
 
 ;; Use spaces instead of tabs
 (setq-default indent-tabs-mode nil) ; Use spaces for indentation
 (setq-default tab-width 4)          ; Set tab width to 4 spaces
+
+;; Treemacs
+(use-package treemacs
+  :bind
+  ("C-c e" . treemacs-add-and-display-current-project-exclusively)
+  :config
+  (treemacs-follow-mode t)
+  (treemacs-filewatch-mode t))
+
+(use-package treemacs-evil
+  :after (treemacs evil))
+
+(use-package treemacs-projectile
+  :after (treemacs projectile))
+
+(defun max/treemacs-toggle ()
+  "Toggle Treemacs, showing the current file's project if opening."
+  (interactive)
+  (if (treemacs-get-local-window)
+      (delete-window (treemacs-get-local-window))
+    (treemacs-display-current-project-exclusively)))
+
+(max/leader-keys
+ "e" '(max/treemacs-toggle :which-key "toggle treemacs"))
 
 ;; LSP
 (use-package lsp-mode

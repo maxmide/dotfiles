@@ -207,7 +207,7 @@ bar {
         status_command i3blocks -c /home/maxwell/.config/i3/i3blocks.conf
 }
 
-exec_always feh --bg-fill /home/maxwell/Pictures/wallpapers/6.jpg
+exec_always feh --bg-fill /home/maxwell/Pictures/wallpapers/communism.jpg
 
 # Assign programs to workspaces
 for_window [class="firefox"] move to workspace number $ws2 
@@ -238,6 +238,9 @@ exec_always --no-startup-id xinput set-prop 10 "libinput Tapping Enabled" 1
 exec_always --no-startup-id picom --backend glx
 
 ## Keybindings
+
+# Screenshot
+bindsym Print exec --no-startup-id maim -s | xclip -selection clipboard -t image/png
 
 # Firefox
 bindsym $mod+x exec --no-startup-id firefox
